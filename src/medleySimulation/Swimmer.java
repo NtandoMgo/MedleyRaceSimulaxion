@@ -154,6 +154,9 @@ public class Swimmer extends Thread {
 				// Once allowed to swim, set the status to true
 				stadium.setStatus(team, true);
 			}
+
+			stadium.startLatch.countDown(); // each swimmer decrements the count
+			stadium.startLatch.await();	// swimmer waits for the latch to reach zero
 								
 			dive(); 
 				
@@ -162,6 +165,7 @@ public class Swimmer extends Thread {
 			synchronized (stadium) {
 				// After finishing, update the status and notify all waiting swimmers
 				stadium.setStatus(team, false);
+				stadium.notifyAll();
 			}
 
 			if(swimStroke.order==4) {
