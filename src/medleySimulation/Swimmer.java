@@ -144,10 +144,26 @@ public class Swimmer extends Thread {
 			enterStadium();	
 			
 			goToStartingBlocks();
+
+			synchronized (stadium) {
+				// Wait for the previous swimmer to finish before starting
+				while (stadium.getStatus(team)) {
+					stadium.wait();  // The swimmer waits here until notified
+				}
+	
+				// Once allowed to swim, set the status to true
+				stadium.setStatus(team, true);
+			}
 								
 			dive(); 
 				
 			swimRace();
+
+			synchronized (stadium) {
+				// After finishing, update the status and notify all waiting swimmers
+				stadium.setStatus(team, false);
+			}
+
 			if(swimStroke.order==4) {
 				finish.finishRace(ID, team); // fnishline
 			}

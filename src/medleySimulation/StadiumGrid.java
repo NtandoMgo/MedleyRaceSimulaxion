@@ -2,6 +2,8 @@
 
 package medleySimulation;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 //This class represents the club as a grid of GridBlocks
 public class StadiumGrid {
 	private GridBlock[][] Blocks;
@@ -15,6 +17,8 @@ public class StadiumGrid {
 	private final static int minX = 5;// minimum x dimension
 	private final static int minY = 5;// minimum y dimension
 
+	private AtomicBoolean[] teamSwimStatus;
+
 	StadiumGrid(int x, int y, int nTeams, FinishCounter c) throws InterruptedException {
 		if (x < minX)
 			x = minX; // minimum x
@@ -27,6 +31,12 @@ public class StadiumGrid {
 		startingBlocks = new GridBlock[nTeams];
 		this.initGrid();
 		entrance = Blocks[0][y - 5];
+
+		// Initialize AtomicBoolean array for teams
+        teamSwimStatus = new AtomicBoolean[nTeams];
+        for (int i = 0; i < nTeams; i++) {
+            teamSwimStatus[i] = new AtomicBoolean(false);  // All teams start as not swimming
+        }
 	}
 
 	// initialise the grid, creating all the GridBlocks, marking the starting blocks
@@ -58,6 +68,9 @@ public class StadiumGrid {
 	public GridBlock whereEntrance() {
 		return entrance;
 	}
+
+	public boolean getStatus(int teamNo){return teamSwimStatus[teamNo].get();}
+	public void setStatus (int teamNo, boolean stat) {teamSwimStatus[teamNo].set(stat);}
 
 	// is this a valid grid reference?
 	public boolean inGrid(int i, int j) {
