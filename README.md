@@ -26,7 +26,7 @@ To run the simulation on Linux or macOS:
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/NtandoMgo/MedleyRaceSimulaxion.git
+git clone https://github.com/NtandoMgo/MedleyRaceSimulaxion/tree/master.git
 cd MedleyRaceSimulaxion
 ```
 
