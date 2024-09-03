@@ -1,4 +1,3 @@
-//M. M. Kuttel 2024 mkuttel@gmail.com
 // MedleySimulation main class, starts all threads
 package medleySimulation;
 

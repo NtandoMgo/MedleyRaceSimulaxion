@@ -1,4 +1,3 @@
-//M. M. Kuttel 2024 mkuttel@gmail.com
 //Class to represent a swimmer swimming a race
 //Swimmers have one of four possible swim strokes: backstroke, breaststroke, butterfly and freestyle
 package medleySimulation;

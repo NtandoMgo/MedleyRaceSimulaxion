@@ -1,4 +1,3 @@
-//M. M. Kuttel 2024 mkuttel@gmail.com
 // GridBlock class to represent a block in the grid.
 // only one thread at a time "owns" a GridBlock - this must be enforced
 
@@ -38,8 +37,9 @@ public class GridBlock {
 		
 	
 	//release a block
-	public  void release() {
+	public synchronized void release() {
 		isOccupied= -1;
+		notifyAll();
 	}
 	
 

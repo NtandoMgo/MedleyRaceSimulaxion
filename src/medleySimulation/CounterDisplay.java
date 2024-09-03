@@ -1,4 +1,3 @@
-//M. M. Kuttel 2024 mkuttel@gmail.com
 // Simple Thread class to update the display of a text field
 package medleySimulation;
 

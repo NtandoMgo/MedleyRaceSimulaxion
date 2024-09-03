@@ -1,4 +1,3 @@
-//M. M. Kuttel 2024 mkuttel@gmail.com
 // Class for storing  locations of people (swimmers only for now, but could add other types) in the simulation
 
 package medleySimulation;
