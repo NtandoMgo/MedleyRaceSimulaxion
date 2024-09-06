@@ -3,7 +3,6 @@
 package medleySimulation;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 //This class represents the club as a grid of GridBlocks
 public class StadiumGrid {

@@ -96,7 +96,7 @@ public class MedleySimulation {
 	    peopleLocations = new PeopleLocation[numTeams*SwimTeam.sizeOfTeam]; //four swimmers per team
 		teams = new SwimTeam[numTeams];
 		for (int i=0;i<numTeams;i++) {
-        	teams[i]=new SwimTeam(i, finishLine, peopleLocations, aLatch);        	
+        	teams[i]=new SwimTeam(i, finishLine, peopleLocations, aLatch);      	
 		}
 		setupGUI(frameX, frameY);  //Start Panel thread - for drawing animation
 		
