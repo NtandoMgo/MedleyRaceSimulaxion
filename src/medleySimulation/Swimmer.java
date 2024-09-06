@@ -23,7 +23,6 @@ public class Swimmer extends Thread {
 	private int team; // team ID
 	private GridBlock start;
 
-	// private CountDownLatch oLatch;
 	private AtomicInteger order;
 
 	public enum SwimStroke {
